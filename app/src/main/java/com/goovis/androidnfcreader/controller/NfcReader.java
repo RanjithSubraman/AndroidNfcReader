@@ -15,15 +15,13 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by ranjithsubramaniam on 4/6/17.
+ * Created by Ranjith Subramaniam on 4/6/17.
  */
 
 public class NfcReader {
     private String TAG = NfcReader.class.getSimpleName();
 
     public void getNdefTagLog(Ndef ndef) {
-        Log.d("Profiler", "YastaNfcActivity | void getNdefTagLog()");
-
         String maxSize = String.valueOf(ndef.getMaxSize());
         Log.d(TAG, "Maximum NDEF message size (Bytes)" + maxSize);
 
@@ -43,8 +41,6 @@ public class NfcReader {
     }
 
     private void readFromCache(Ndef ndef) {
-        Log.d("Profiler", "YastaNfcActivity | readFromCache()");
-
         NdefMessage ndefMessage = ndef.getCachedNdefMessage();
 
         if (ndefMessage != null) {
@@ -55,8 +51,6 @@ public class NfcReader {
     }
 
     private void readFromTag(Ndef ndef) {
-        Log.d("Profiler", "YastaNfcActivity | readFromTag()");
-
         NdefMessage readMessage;
         long startReadTime;
         long endReadTime;
@@ -137,8 +131,6 @@ public class NfcReader {
     }
 
     private String getTnfResult(short tnf) {
-        Log.d("Profiler", "YastaNfcActivity | getTnfResult()");
-
         String sResult;
 
         switch (tnf) {
@@ -187,8 +179,6 @@ public class NfcReader {
     }
 
     private String getTypeResult(byte[] type) {
-        Log.d("Profiler", "YastaNfcActivity | getTypeResult()");
-
         String sResult;
 
         if (Arrays.equals(type, NdefRecord.RTD_ALTERNATIVE_CARRIER)) {
@@ -212,10 +202,7 @@ public class NfcReader {
         return sResult;
     }
 
-    private String readText(NdefRecord record)
-            throws UnsupportedEncodingException {
-        Log.d("Profiler", "YastaNfcActivity | readText()");
-
+    private String readText(NdefRecord record) throws UnsupportedEncodingException {
         byte[] payload = record.getPayload();
 
         // Get the Text Encoding
@@ -230,8 +217,6 @@ public class NfcReader {
     }
 
     private String readWellKnownUri(NdefRecord record) {
-        Log.d("Profiler", "YastaNfcActivity | readWellKnownUri()");
-
         byte[] payload = record.getPayload();
 
         String prefix = "";

@@ -112,8 +112,6 @@ public class NfcReaderActivity extends AppCompatActivity {
 
         adapter.enableForegroundDispatch(activity, pendingIntent, filters,
                 techList);
-        Log.d("Profiler",
-                "YastaNfcActivity | NfcAdapter.enableForegroundDispatch called");
     }
 
     /**
@@ -123,14 +121,10 @@ public class NfcReaderActivity extends AppCompatActivity {
     public static void stopForegroundDispatch(final Activity activity) {
         NfcAdapter adapter = NfcAdapter.getDefaultAdapter(activity);
         adapter.disableForegroundDispatch(activity);
-        Log.d("Profiler",
-                "YastaNfcActivity | NfcAdapter.disableForegroundDispatch called");
     }
 
     private void handleIntent(Intent intent) {
         String action = intent.getAction();
-        Log.d("Profiler", "YastaNfcActivity | action = " + action);
-
         boolean checkNdef = false;
 
         printTagInfo(intent);
@@ -246,9 +240,6 @@ public class NfcReaderActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(Intent... params) {
-            Log.d("Profiler",
-                    "YastaNfcActivity | doInBackground(Intent... params)");
-
             String result = "doInBackground() method is executed";
             Intent intent = params[0];
 
