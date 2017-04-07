@@ -40,4 +40,4 @@ captures/
 *.jks
 
 #Idea files
-*.idea
+.idea/
